@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,35 +9,66 @@
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  </head>
-  <body>
+</head>
+
+<body>
     <nav class="navbar navbar-dark bg-dark">
         <span class="navbar-text">
-          <h1 class="text-center">Weather Dashboard</h1>
+            <h1 class="text-center">Weather Dashboard</h1>
         </span>
     </nav>
 
     <div class="row">
         <!-- left side column -->
-        <div class="col-sm-3 bg-light" >
+        <div class="col-sm-3 bg-light p-3 my-3">
             <div class="form-group">
                 <label for="city">Search for a City:</label>
-                <input type="text" class="form-control" id="city">
-              </div>
-        </div>
-            
-            <!-- right side column -->
-        <div class="col-md-6">
-            <div class= "weatherInfo cityName">
-                Lorem ipsum dolor sit amet, cibo sensibus interesset no sit. Et dolor possim volutpat qui. No malis tollit iriure eam, et vel tale zril blandit, rebum vidisse nostrum qui eu. No nostrud dolorem legendos mea, ea eum mucius oporteat platonem.Eam an case scribentur, ei clita causae cum, alia debet eu vel.
+                <input type="text" class="form-control" id="city" placeholder="Charlotte">
+                <button type="submit" class="btn btn-primary">Search</button>
+
+                <!-- search history section -->
+                <div class ="searchHistory">
+    
+                </div>
+            </div>
+
+            <!-- search history section -->
+            <div id="searchHistory class ="p-3 my-3">
+                <!-- insert cities here with JS -->
             </div>
         </div>
-      </div>
-   
+
+        <!-- right side column -->
+        <div class="col-sm-5">
+            <div id ="Weatherinfo" class="row p-8 my-3 border">
+                <ul>
+                    <li id="city">
+                        Charlotte NC
+                    </li>
+                    <li id ="temp">
+                        92 degrees
+                    </li>
+                    <li id="windSpeed">
+                        18 mph
+                    </li>
+                    <li id="uvi">
+                        uv index: 9.2
+                    </li>
+                  </ul>
+            </div>
+            <div id="fiveDayForecast" class="row p-8 my-3 border">
+                5 day forecast:<br>
+                
+            </div>
+            
+
+        </div>
+    </div> 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-  </body>
+    <script src="script.js"></script>
+</body>
+
 </html>
