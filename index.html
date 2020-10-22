@@ -24,46 +24,41 @@
             <div class="form-group">
                 <label for="city">Search for a City:</label>
                 <input type="text" class="form-control" id="city" placeholder="Charlotte">
-                <button type="submit" class="btn btn-primary">Search</button>
-
+                <button id="submit" type="submit" class="btn btn-primary">Search</button>
                 <!-- search history section -->
-                <div class ="searchHistory">
-    
-                </div>
+                <ul id="searchHistory">
+                    <li class="searchChoices">boone</li>
+                </ul>
             </div>
 
             <!-- search history section -->
-            <div id="searchHistory class ="p-3 my-3">
+            <div id="searchHistory class =" p-3 my-3">
                 <!-- insert cities here with JS -->
             </div>
         </div>
 
         <!-- right side column -->
         <div class="col-sm-5">
-            <div id ="Weatherinfo" class="row p-8 my-3 border">
-                <ul>
-                    <li id="city">
-                        Charlotte NC
-                    </li>
-                    <li id ="temp">
-                        92 degrees
-                    </li>
-                    <li id="windSpeed">
-                        18 mph
-                    </li>
-                    <li id="uvi">
-                        uv index: 9.2
-                    </li>
-                  </ul>
+            <div class="row p-8 my-3 border">
+                <ul id="weatherInfo">
+                    <div id ="temp"></div>
+                    <div id ="humidity"></div>
+                    <div id ="windSpeed"></div>
+                    <div id ="uvi"></div>
+                </ul>
             </div>
-            <div id="fiveDayForecast" class="row p-8 my-3 border">
+            <div class="row p-8 my-3 border" id="fiveDayForecast">
                 5 day forecast:<br>
-                
+                <div id="weatherDay1"></div>
+                <div id="weatherDay2"></div>
+                <div id="weatherDay3"></div>
+                <div id="weatherDay4"></div>
+                <div id="weatherDay5"></div>
             </div>
-            
+
 
         </div>
-    </div> 
+    </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
