@@ -1,8 +1,7 @@
 $(document).ready(function () {
   console.log("ready!");
 
-var fiveDayForecastEl = $('#fiveDayForecast')
-
+  var fiveDayForecastEl = $("#fiveDayForecast");
 
   $("#submit").on("click", function () {
     var userCity = $("#city").val();
@@ -10,22 +9,23 @@ var fiveDayForecastEl = $('#fiveDayForecast')
     $("#city").val("");
     weatherCall(userCity);
     fiveDayWeatherCall(userCity);
+
+    var node = document.createElement("li");                 // Create a <li> node
+    var textnode = document.createTextNode(userCity); // Create a text node
+    node.appendChild(textnode); // Append the text to <li>
+    document.getElementById("searchHistory").appendChild(node); // Append <li> to <ul> with id="myList"
   });
 
   // Weather Variables
   var APIKey = "304328a5715add3e4e98ab718222d70d";
-
-  // Here we are building the URL we need to query the database
-
   // Weather Call
   function weatherCall(userCity) {
-    var queryURL =
-     
+    let queryURL =
       "https://api.openweathermap.org/data/2.5/weather?q=" +
       userCity +
       "&appid=" +
       APIKey;
-      console.log('queryURL:', queryURL)
+    console.log("queryURL:", queryURL);
     $.ajax({
       url: queryURL,
       method: "GET",
@@ -38,9 +38,14 @@ var fiveDayForecastEl = $('#fiveDayForecast')
       $("#temp").html("Temperature: " + response.main.temp);
       $("#humidity").html("Humidity: " + response.main.humidity);
       $("#windSpeed").html("Wind Speed: " + response.wind.speed);
-      $("#uvi").html("not the UV Index: so its now the ID " + response.sys.id);
+
       console.log("weather response:", response);
-    });
+       let lat = response.coord.lat;
+       console.log('lat:', lat)
+       let lon = response.coord.lon;
+       console.log('lon:', lon);
+       UVICall(lat,lon);
+       });
   }
 
   //   makes search history buttons clickable
@@ -67,13 +72,39 @@ var fiveDayForecastEl = $('#fiveDayForecast')
       // var weatherTitle = $("<li>").text(response.name);
       // var weatherInfo = $("#weatherInfo");
       // weatherInfo.append(weatherTitle);
-      $("#weatherDay1").html(response.list[0].dt_txt + "<br>" + response.list[0].weather[0].main + "<br>"
-      )
-
+      $("#weatherDay1").html(
+        response.list[0].dt_txt +
+          "<br>" +
+          response.list[0].weather[0].main +
+          "<br>Temp: " +
+          response.list[0].main.temp +
+          "<br>Humidity: " +
+          response.list[0].main.humidity +
+          "%"
+      );
 
       console.log("5 day weather response:", response);
     });
   }
+    // UVI Call
+  function UVICall(lat, lon) {
+    let queryURL =
+      "https://api.openweathermap.org/data/2.5/uvi?lat=" +
+      lat +
+      "&lon=" +
+      lon +
+      "&appid=" +
+      APIKey;
+    $.ajax({
+      url: queryURL,
+      method: "GET",
+    }).then(function (response) {
+      //Log the queryURL
+      console.log("queryURL:", queryURL);
+      $("#uvi").html("UV Index: " + response.value);
 
 
+
+    });
+  }
 });
