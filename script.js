@@ -72,16 +72,61 @@ $(document).ready(function () {
       // var weatherTitle = $("<li>").text(response.name);
       // var weatherInfo = $("#weatherInfo");
       // weatherInfo.append(weatherTitle);
+      
       $("#weatherDay1").html(
-        response.list[0].dt_txt +
+        response.list[1].dt_txt +
           "<br>" +
-          response.list[0].weather[0].main +
+          response.list[1].weather[0].main +
           "<br>Temp: " +
-          response.list[0].main.temp +
+          response.list[1].main.temp +
           "<br>Humidity: " +
-          response.list[0].main.humidity +
+          response.list[1].main.humidity +
           "%"
       );
+      $("#weatherDay2").html(
+        response.list[2].dt_txt +
+          "<br>" +
+          response.list[2].weather[0].main +
+          "<br>Temp: " +
+          response.list[2].main.temp +
+          "<br>Humidity: " +
+          response.list[2].main.humidity +
+          "%"
+      );
+      $("#weatherDay3").html(
+        response.list[3].dt_txt +
+          "<br>" +
+          response.list[3].weather[0].main +
+          "<br>Temp: " +
+          response.list[3].main.temp +
+          "<br>Humidity: " +
+          response.list[3].main.humidity +
+          "%"
+      );
+
+      $("#weatherDay4").html(
+        response.list[4].dt_txt +
+          "<br>" +
+          response.list[4].weather[0].main +
+          "<br>Temp: " +
+          response.list[4].main.temp +
+          "<br>Humidity: " +
+          response.list[4].main.humidity +
+          "%"
+      );
+      $("#weatherDay5").html(
+        response.list[5].dt_txt +
+          "<br>" +
+          response.list[5].weather[0].main +
+          "<br>Temp: " +
+          response.list[5].main.temp +
+          "<br>Humidity: " +
+          response.list[5].main.humidity +
+          "%"
+      );
+
+
+
 
       console.log("5 day weather response:", response);
     });
